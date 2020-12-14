@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@400;900&amp;display=swap" rel="stylesheet">
+    <script>
+        var i=0;
+        var imgs=new Array(
+        '/Учеба/Веб-программирование/JS/image/1.JPG',
+        '/Учеба/Веб-программирование/JS/image/2.JPG','/Учеба/Веб-программирование/JS/image/3.JPG',
+        '/Учеба/Веб-программирование/JS/image/4.JPG','/Учеба/Веб-программирование/JS/image/5.JPG',
+        '/Учеба/Веб-программирование/JS/image/6.JPG','/Учеба/Веб-программирование/JS/image/7.JPG',
+        '/Учеба/Веб-программирование/JS/image/8.JPG','/Учеба/Веб-программирование/JS/image/9.JPG');
+
+        function logSubmit() {
+            var image = document.getElementById('image');
+            var width = document.getElementById('width');
+            var height = document.getElementById('height');
+            var thickness = document.getElementById('thickness');
+            var alternative = document.getElementById('alternative');
+            image.style.width = width.value + 'px';
+            image.style.height = height.value + 'px';
+            image.style.border = thickness.value + 'px solid black';
+            image.style.boxShadow = thickness.value + 'px 5px 10px white';
+            image.setAttribute("alt", alternative.value);
+        }
+
+        function imgsrc(){
+        var image=document.getElementById("image");
+        image.src=imgs[Math.floor(Math.random()*imgs.length)];
+        }
+    </script>
+    <title>JS</title>
+</head>
+<body>
+    <div>
+        <p id="log"><b>Заполните форму, чтобы изменить параметры картинки</b></p>
+        <form id="photoChange" onsubmit="logSubmit(); return false">
+        <label for="width">Width</label>
+        <input type="number" class="blocks" name="width" id="width">
+        <br>
+        <label for="height">Height</label>
+        <input type="number" class="blocks" name="height" id="height">
+        <br>
+        <label for="thickness">Border thickness</label>
+        <input type="number" class="blocks" name="thickness" id="thickness">
+        <br>
+        <label for="alternative">Alternative text</label>
+        <input type="text" class="blocks" name="alternative" id="alternative">
+        <br>
+        <input type="submit" class="button" onclick="imgsrc();"/>
+        </form>
+        <img id="image" onclick="imgsrc();"; src="/Учеба/Веб-программирование/JS/image/1.JPG" alt="" 
+        style="
+                display: flex;
+                margin-left: auto;
+                margin-right: auto;
+                width: 50%;
+            ">
+        </div>
+</body>
+</html>
